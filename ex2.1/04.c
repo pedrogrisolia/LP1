@@ -9,11 +9,13 @@ int main (void) {
 	if (kph<80) {
 		printf("ACELERE\n");
 	}
-	if (kph>80 && kph<100) {
-		printf("MANTENHA\n");
-	}
-	if (kph>100) {
-		printf("DESACELERE\n");
+	else {
+		if (kph>80 && kph<100) {
+			printf("MANTENHA\n");
+		}
+		else {
+			printf("DESACELERE\n");
+		}
 	}
 	return 0;
 }
