@@ -17,7 +17,7 @@ float media(int n, int* vec) {
 }
 int main(void) {
 	int n;
-	int vec[1000];
+	int vec[100];
 	printf("Digite N: ");
 	scanf("%d",&n);
 	preenche(n,vec);
