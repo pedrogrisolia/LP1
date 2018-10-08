@@ -1,8 +1,10 @@
 #include <stdio.h>
+void compra(int* c, int valor) {
+	*c=*c-valor;
+} 
 int main(void) {
 	int conta1;
 	int conta2;
-	int valor=500;
 	int* conta;
 	scanf("%d %d",&conta1,&conta2);
 	if(conta1>conta2) {
@@ -11,13 +13,7 @@ int main(void) {
 	else {
 		conta=&conta2;
 	}
-	compra(conta,valor);
+	compra(conta,500);
 	printf("%d %d\n",conta1,conta2);
 	return 0;
 }
-int compra(int* conta, int valor) {
-	*conta=*conta-valor;
-	return 0;
-}	
-	
-	
