@@ -16,7 +16,7 @@ int main(void) {
 	return 0;
 }
 int compra(int* conta, int valor) {
-	*conta=*conta-500;
+	*conta=*conta-valor;
 	return 0;
 }	
 	
