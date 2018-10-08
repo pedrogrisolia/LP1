@@ -1,20 +1,20 @@
 #include <stdio.h>
+int eh_primo(int n) {
+	int x;
+	for(x=2;x<n;x++) {
+		if(n%x==0) {
+			return 0;
+		}
+	}
+	return 1;
+}
 int todos_os_primos(int max) {
-	int i,c;
+	int i,c,r;
 	char primo=1;
 	for(i=2;i<=max;i++) {
-		c=2;
-		while(c<i) {
-			if(i%c==0) {
-				primo=0;
-				break;
-			}
-			else {
-				primo=1;
-				c++;
-			}
-		}
-		if(primo==1) {
+		eh_primo(i);
+		r=eh_primo(i);
+		if(r==1) {
 			printf("%d\n",i);
 		}
 	}
