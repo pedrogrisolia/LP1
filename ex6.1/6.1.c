@@ -6,7 +6,8 @@ void preenche(int n, int* vec) {
 	}
 }
 float media(int n, int* vec) {
-	int soma,x;
+	int x;
+	int soma=0;
 	float med;
 	for(x=0;x<n;x++) {
 		soma=soma+vec[x];
