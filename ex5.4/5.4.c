@@ -1,15 +1,14 @@
 #include <stdio.h>
-void troca(int *p1,int *p2,int x,int y) {
-	p1=&y;
-	p2=&x;
+void troca(int *p1,int *p2) {
+	int a=*p1;
+	int b=*p2;
+	*p1=b;
+	*p2=a;
 	printf("%d %d\n",*p1,*p2);
 }	
 int main(void) {
 	int x,y;
-	int *p1,*p2;
 	scanf("%d %d",&x,&y);
-	p1=&x;
-	p2=&y;
-	troca(p1,p2,x,y);
+	troca(&x,&y);
 	return 0;
 }
