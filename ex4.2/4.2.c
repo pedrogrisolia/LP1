@@ -12,7 +12,6 @@ int todos_os_primos(int max) {
 	int i,c,r;
 	char primo=1;
 	for(i=2;i<=max;i++) {
-		eh_primo(i);
 		r=eh_primo(i);
 		if(r==1) {
 			printf("%d\n",i);
