@@ -9,17 +9,17 @@ struct Jogador {
 	struct Personagem p;
 };
 
-void preenche(struct Jogador*p1) {
-	scanf("%d %d",&(*p1).p.forca,&(*p1).p.energia);
+void preenche(struct Personagem*p) {
+	scanf("%d %d",&(*p).forca,&(*p).energia);
 }
-void preenche2(struct Jogador*p1) {
-	scanf("%d",&(*p1).dinheiro);
-	scanf("%s",(*p1).nome);
-	preenche(p1);
+void preenche2(struct Jogador*j) {
+	scanf("%d",&(*j).dinheiro);
+	scanf("%s",(*j).nome);
+	preenche(&(*j).p);
 }
 int main(void) {
-	struct Jogador p1;
-	preenche2(&p1);
-	printf("Nome:%s\nDinheiro:%d\nForça do personagem:%d\nEnergia do personagem%d\n",p1.nome,p1.dinheiro,p1.p.forca,p1.p.energia);
+	struct Jogador j1;
+	preenche2(&j1);
+	printf("Nome:%s\nDinheiro:%d\nForça do personagem:%d\nEnergia do personagem:%d\n",j1.nome,j1.dinheiro,j1.p.forca,j1.p.energia);
 }
 	
