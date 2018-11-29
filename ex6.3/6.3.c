@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 struct ponto {
 	int x;
 	int y;
@@ -10,18 +11,20 @@ void preenche1(struct ponto*a) {
 void preenchevetor(struct ponto v[10]) {
 	int j=0;
 	for(j;j<10;j++) {
-		scanf("%d %d",&(v[j]).x,&(v[j]).y);
+		preenche1(&v[j]);
 	}
 }
 struct ponto maisdistante(struct ponto v[10]) {
 	int j;
-	int maiorponto=0;
+	float maisdistante=0.0;
+	float formula;
 	struct ponto maior;
 	maior.x=0;
 	maior.y=0;
 	for(j=0;j<10;j++) {
-		if(v[j].x+v[j].y>maiorponto) {
-			maiorponto=v[j].x+v[j].y;
+		formula=sqrt(pow(v[j].x,2.0)+pow(v[j].y,2.0));
+		if(formula>maisdistante) {
+			maisdistante=formula;
 			maior=v[j];
 		}
 	}
@@ -37,5 +40,6 @@ int main() {
 	for(i;i<10;i++) {
 		printf("(%d,%d) ",v[i].x,v[i].y);
 	}
-	printf("\n(%d,%d)\n",maisdistante(v).x,maisdistante(v).y);
+	struct ponto p=maisdistante(v);
+	printf("\n(%d,%d)\n",p.x,p.y);
 }
