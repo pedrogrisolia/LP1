@@ -8,15 +8,15 @@ int strlen2(char* s) {
 void strjoin2(char* s,char* o1, char* o2) {
 	int p,q;
 	int i=0;
-	for(p=0;o1[p]!="\0";p++) {
+	for(p=0;p<strlen2(o1);p++) {
 		s[i]=o1[p];
 		i++;
 	}
-	for(q=0;o2[q]!="\0";q++) {
+	for(q=0;q<strlen2(o2);q++) {
 		s[i]=o2[q];
 		i++;
 	}
-	s[i]="\0";
+	s[i]=0;
 }
 int main(void) {
 	char s[1000]="111111111111111111111111111111",o1[100],o2[100];
