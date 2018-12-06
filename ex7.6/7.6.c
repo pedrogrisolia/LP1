@@ -1,38 +1,36 @@
 #include <stdio.h>
+union Classe {
+	int magia;
+	int forca;
+};
 struct Personagem {
 	char nome[20];
 	int dinheiro;
+	union Classe c;
 };
-union Classe {
-	struct {
-		int magia;
-		struct Personagem m;
-	} Mago;
-	struct {
-		int forca;
-		struct Personagem g;
-	} Guerreiro;
-};
-void preenche_m(union Classe* c) {
-	printf("Preencha os atributos do seu mago\n");
-	scanf("%s",(*c).Mago.m.nome);
-	scanf("%d %d",&(*c).Mago.magia,&(*c).Mago.m.dinheiro);
+void preenche_p(struct Personagem* p) {
+	scanf("%s %d",(*p).nome,&(*p).dinheiro);
 }
-void preenche_g(union Classe* c) {
+void preenche_m(struct Personagem* p) {
+	printf("Preencha os atributos do seu mago\n");
+	preenche_p(p);
+	scanf("%d",&(*p).c.magia);
+}
+void preenche_g(struct Personagem* p) {
 	printf("Preencha os atributos do seu guerreiro\n");
-	scanf("%s",(*c).Guerreiro.g.nome);
-	scanf("%d %d",&(*c).Guerreiro.forca,&(*c).Guerreiro.g.dinheiro);
+	preenche_p(p);
+	scanf("%d",&(*p).c.forca);
 }
 int main(void) {
-	union Classe c1;
+	struct Personagem p1;
 	int i;
 	printf("Escolha sua classe:\n1-Guerreiro\n2-Mago\n");	
 	scanf("%d",&i);
 	if(i==1) {
-		preenche_g(&c1);
+		preenche_g(&p1);
 	}
 	else {
-		preenche_m(&c1);
+		preenche_m(&p1);
 	}
 }
 	

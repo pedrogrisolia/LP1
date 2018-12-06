@@ -1,9 +1,8 @@
 #include <stdio.h>
 void troca(int *p1,int *p2) {
-	int a=*p1;
-	int b=*p2;
-	*p1=b;
-	*p2=a;
+	int temp=*p1;
+	*p1=*p2;
+	*p2=temp;
 	printf("%d %d\n",*p1,*p2);
 }	
 int main(void) {
