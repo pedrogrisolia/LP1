@@ -6,6 +6,7 @@ union Classe {
 struct Personagem {
 	char nome[20];
 	int dinheiro;
+	int tipo;
 	union Classe c;
 };
 void preenche_p(struct Personagem* p) {
@@ -23,10 +24,9 @@ void preenche_g(struct Personagem* p) {
 }
 int main(void) {
 	struct Personagem p1;
-	int i;
 	printf("Escolha sua classe:\n1-Guerreiro\n2-Mago\n");	
-	scanf("%d",&i);
-	if(i==1) {
+	scanf("%d",&p1.tipo);
+	if(p1.tipo==1) {
 		preenche_g(&p1);
 	}
 	else {
