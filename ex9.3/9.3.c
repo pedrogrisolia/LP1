@@ -4,7 +4,7 @@ struct Caixa {
 	struct Caixa* prox;
 };
 void exibe(struct Caixa* caixa) {
-	while(caixa->prox!=NULL) {
+	while(caixa!=NULL) {
 		printf("%d ",caixa->v);
 		caixa=caixa->prox;
 	}
