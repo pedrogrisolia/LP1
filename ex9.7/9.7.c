@@ -18,13 +18,14 @@ int contem(Caixa* caixa,int valor) {
 	return 0;
 }
 int retira(Caixa* caixa,int valor) {
-	if(contem(caixa,valor)==0) {
+	int pos=contem(caixa,valor);
+	if(pos==0) {
 		return 0;
 	}
-	int pos=contem(caixa,valor);
 	if(pos==1) {
+		Caixa* ant=caixa->ant;
 		*caixa=*caixa->prox;
-		caixa->ant=NULL;
+		caixa->ant=ant;
 		return 0;
 	}
 	int i;
@@ -49,7 +50,8 @@ int main(void) {
 	int n,remove;
 	Caixa* cabeca=NULL;
 	Caixa* ante;
-	for(Caixa* ult;;) {
+	Caixa* ult;
+	for(;;) {
 		scanf("%d",&n);
 		if(n==-1) {
 			break;
@@ -67,6 +69,7 @@ int main(void) {
 		ult=c;
 		ante=ult;
 	}
+	cabeca->ant=ult;
 	printf("Digite o valor a ser removido\n");
 	scanf("%d",&remove);
 	if(contem(cabeca,remove)!=0) {
