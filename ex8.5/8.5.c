@@ -20,16 +20,20 @@ void preenche_mago(union Classe* c) {
 }
 int main(void) {
 	union Classe c1;
-  union Classe le;
+ 	union Classe le;
 	preenche_mago(&c1);
 	FILE* f=fopen("arq.bin","wb");
-	fwrite(&c1,sizeof(union Classe),1,f);
+	fwrite(c1.Mago.m.nome,sizeof(char),strlen(c1.Mago.m.nome),f);
+	fwrite(&c1.Mago.magia,sizeof(int),1,f);
+	fwrite(&c1.Mago.m.dinheiro,sizeof(int),1,f);	
 	fclose(f);
-  FILE* a=fopen("arq.bin","rb");
-  fread(&le,sizeof(union Classe),1,a);
-  fclose(a);
-  printf("%s %d %d\n",le.Mago.m.nome,le.Mago.magia,le.Mago.m.dinheiro);
+ 	FILE* a=fopen("arq.bin","rb");
+ 	fread(le.Mago.m.nome,sizeof(char),strlen(c1.Mago.m.nome),a);
+	le.Mago.m.nome[strlen(c1.Mago.m.nome)]='\0';
+	fread(&le.Mago.magia,sizeof(int),1,a);
+	fread(&le.Mago.m.dinheiro,sizeof(int),1,a);
+ 	fclose(a);
+ 	printf("%s %d %d\n",le.Mago.m.nome,le.Mago.magia,le.Mago.m.dinheiro);
 
 
 }
-
